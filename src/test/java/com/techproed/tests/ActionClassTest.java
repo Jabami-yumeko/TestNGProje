@@ -6,8 +6,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
+import sun.awt.windows.WToolkit;
 
-import java.security.Key;
 
 public class ActionClassTest extends TestBase {
 
@@ -58,5 +58,31 @@ public class ActionClassTest extends TestBase {
         }
         actions.sendKeys(Keys.PAGE_UP).perform();
         actions.sendKeys(Keys.ARROW_UP).perform();
+    }
+
+    @Test
+    public void buyukKucukYazma(){
+        //
+        driver.get("http://google.com");
+        WebElement aramaKutusu =driver.findElement(By.name("q"));
+        aramaKutusu.sendKeys(Keys.SHIFT+"merhaba nasilsiniz"); // her karakteri buyuk yazar
+
+        Actions actions=new Actions(driver);
+        actions.moveToElement(aramaKutusu).click()
+                .keyDown(Keys.SHIFT)
+                .sendKeys("merhaba")
+                .keyUp(Keys.SHIFT)
+                .sendKeys(" nasilsiniz").perform();
+    }
+
+    @Test
+    public void dragAndDrop(){
+        driver.get("http://google.com");
+        WebElement aramaKutusu = driver.findElement(By.name("q"));
+        WebElement logo = driver.findElement(By.id("hplogo"));
+
+        Actions actions = new Actions(driver);
+        // logo webelementini, aramaKutusu webelementine surukle ve birak
+        actions.dragAndDrop(logo,aramaKutusu).perform();
     }
 }
