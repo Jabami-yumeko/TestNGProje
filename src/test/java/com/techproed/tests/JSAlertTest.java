@@ -58,6 +58,7 @@ public class JSAlertTest {
 
         driver.switchTo().alert().sendKeys("Merhaba TestNG");
         driver.switchTo().alert().accept();
+
     }
 
 
