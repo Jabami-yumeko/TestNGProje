@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite - Test Gruplari">
+    <test name="Grubu 'fhctrip' olan testler">
+        
+        <groups>
+            
+            <run>
+                <!-- include derseniz, sadee sizin yazdiginiz GRUPTA ki testleri calistirir -->
+                <!-- exlude derseniz, yazdiginiz GRUBUN DISINDAKI testleri calistirir -->
+                <include name="fhctrip"></include>
+            </run>
+        </groups>
+
+        <packages>
+            <package name=".*"></package>
+        </packages>
+
+
+
+    </test>
+</suite>
